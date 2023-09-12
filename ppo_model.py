@@ -75,10 +75,10 @@ def objective(trial):
                 ent_coef=ent_coef, clip_range=clip_range, verbose=0)
 
     # Train model
-    model.learn(total_timesteps=5000)  # Use a smaller timesteps for trials
+    model.learn(total_timesteps=2000)  # Use a smaller timesteps for trials
 
     # Evaluate model
-    mean_reward, _ = evaluate_policy(model, env, n_eval_episodes=10, render=False)
+    mean_reward, _ = evaluate_policy(model, env, n_eval_episodes=5, render=False)
 
     return mean_reward
 
@@ -86,7 +86,7 @@ def objective(trial):
 def hyperparameter_tuning():
     # Tuning process
     study = optuna.create_study(direction="maximize")
-    study.optimize(objective, n_trials=50)  # Run 50 trials
+    study.optimize(objective, n_trials=10)
     best_params = study.best_params
 
     # Print best parameters

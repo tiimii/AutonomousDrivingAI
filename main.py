@@ -25,12 +25,13 @@ def test_environment():
 
 def train_model(path, iterations):
     for iteration in range(iterations):
-        ppo_model.train(path, 100000)
+        ppo_model.train(path, 50000)
     ppo_model.evaluate(path)
 
 
 if __name__ == '__main__':
     model_path = os.path.join("Training", "Saved Models", "PPO_Driving_Model")
-    ppo_model.hyperparameter_tuning()
-    # train_model(model_path, 5)
-    # ppo_model.test(model_path)
+    tuned_model_path = os.path.join("Training", "Saved Models", "PPO_Driving_Model_TUNED")
+    # ppo_model.hyperparameter_tuning()
+    train_model(tuned_model_path, 2)
+    # ppo_model.test(tuned_model_path)

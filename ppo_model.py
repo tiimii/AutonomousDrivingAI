@@ -21,7 +21,7 @@ def initialize_model(model_path):
     # Save Model
     model.save(model_path)
 
-    return env
+    env.close()
 
 
 def train(model_path, timesteps):

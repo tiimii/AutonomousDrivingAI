@@ -23,12 +23,13 @@ def test_environment():
     env.close()
 
 
-def train_model(model_path):
-    ppo_model.train(model_path, 200000)
-    ppo_model.evaluate(model_path)
+def train_model(path, iterations):
+    for iteration in range(iterations):
+        ppo_model.train(path, 100000)
+    ppo_model.evaluate(path)
 
 
 if __name__ == '__main__':
     model_path = os.path.join("Training", "Saved Models", "PPO_Driving_Model")
-    train_model(model_path)
+    train_model(model_path, 5)
     # ppo_model.test(model_path)

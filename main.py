@@ -31,5 +31,6 @@ def train_model(path, iterations):
 
 if __name__ == '__main__':
     model_path = os.path.join("Training", "Saved Models", "PPO_Driving_Model")
-    train_model(model_path, 5)
+    ppo_model.hyperparameter_tuning()
+    # train_model(model_path, 5)
     # ppo_model.test(model_path)
